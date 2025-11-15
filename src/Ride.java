@@ -1,6 +1,7 @@
+import java.util.LinkedList;
 import java.util.Queue;
 
-public class Ride {
+public class Ride implements RideInterface{
     
     private String name;
     private String description;
@@ -16,6 +17,7 @@ public class Ride {
     public Ride(String name, String description, Employee operator) {
         this.name = name;
         this.description = description;
+        this.waitingQueue = new LinkedList<>();
     }
 
     public String getName() {
@@ -40,6 +42,54 @@ public class Ride {
 
     public void setOperator(Employee operator) {
         this.operator = operator;
+    }
+
+    @Override
+    public void addVisitorToHistory(Visitor visitor) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void addVisitorToQueue(Visitor visitor) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public boolean checkVisitorFromHistory(Visitor visitor) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public int numberOfVisitors() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void printQueue() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void printRideHistory() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void removeVisitorFromQueue(Visitor visitor) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void runOneCycle() {
+        // TODO Auto-generated method stub
+        
     }
 
     

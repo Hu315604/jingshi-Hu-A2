@@ -1,17 +1,17 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Ride implements RideInterface{
-    
+public class Ride implements RideInterface {
+
     private String name;
     private String description;
     private Employee operator;
 
-    //part3 waiting line
+    // part3 waiting line
     private Queue<Visitor> waitingQueue;
 
-    public Ride(){
-        //default
+    public Ride() {
+        // default
     }
 
     public Ride(String name, String description, Employee operator) {
@@ -45,15 +45,31 @@ public class Ride implements RideInterface{
     }
 
     @Override
-    public void addVisitorToHistory(Visitor visitor) {
-        // TODO Auto-generated method stub
-        
+    public void addVisitorToQueue(Visitor visitor) {
+        if (visitor == null) {
+            System.out.println("Visitor is null, there cannot join a null visitor to waiting line");
+        } else {
+            waitingQueue.add(visitor);
+            System.out.println("Visitor " + visitor.getName() + " was joined to waiting line");
+        }
     }
 
     @Override
-    public void addVisitorToQueue(Visitor visitor) {
+    public void removeVisitorFromQueue(Visitor visitor) {
         // TODO Auto-generated method stub
-        
+
+    }
+
+    @Override
+    public void printQueue() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void addVisitorToHistory(Visitor visitor) {
+        // TODO Auto-generated method stub
+
     }
 
     @Override
@@ -69,29 +85,15 @@ public class Ride implements RideInterface{
     }
 
     @Override
-    public void printQueue() {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
     public void printRideHistory() {
         // TODO Auto-generated method stub
-        
-    }
 
-    @Override
-    public void removeVisitorFromQueue(Visitor visitor) {
-        // TODO Auto-generated method stub
-        
     }
 
     @Override
     public void runOneCycle() {
         // TODO Auto-generated method stub
-        
-    }
 
-    
+    }
 
 }

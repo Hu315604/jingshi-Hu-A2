@@ -55,8 +55,10 @@ public class Ride implements RideInterface {
     }
 
     @Override
-    public void removeVisitorFromQueue(Visitor visitor) {
-        // TODO Auto-generated method stub
+    public void removeVisitorFromQueue() {
+        if (waitingQueue.isEmpty()) {
+            // TODO Auto-generated method stub
+        }
 
     }
 

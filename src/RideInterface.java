@@ -2,7 +2,7 @@ public interface RideInterface {
 
     public void addVisitorToQueue(Visitor visitor);
 
-    public void removeVisitorFromQueue(Visitor visitor);
+    public void removeVisitorFromQueue();
 
     public void printQueue();
 

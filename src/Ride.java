@@ -1,8 +1,13 @@
+import java.util.Queue;
+
 public class Ride {
     
     private String name;
     private String description;
     private Employee operator;
+
+    //part3 waiting line
+    private Queue<Visitor> waitingQueue;
 
     public Ride(){
         //default

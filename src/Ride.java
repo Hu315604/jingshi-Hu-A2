@@ -57,7 +57,10 @@ public class Ride implements RideInterface {
     @Override
     public void removeVisitorFromQueue() {
         if (waitingQueue.isEmpty()) {
-            // TODO Auto-generated method stub
+            System.out.println("Waiting que is empty.");
+        }else{
+            Visitor removedVisitor = waitingQueue.remove();
+            System.out.println(removedVisitor+" has remove from the queue.");
         }
 
     }

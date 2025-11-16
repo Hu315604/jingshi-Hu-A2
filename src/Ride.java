@@ -58,16 +58,24 @@ public class Ride implements RideInterface {
     public void removeVisitorFromQueue() {
         if (waitingQueue.isEmpty()) {
             System.out.println("Waiting que is empty.");
-        }else{
+        } else {
             Visitor removedVisitor = waitingQueue.remove();
-            System.out.println(removedVisitor+" has remove from the queue.");
+            System.out.println(removedVisitor + " has remove from the queue.");
         }
 
     }
 
     @Override
     public void printQueue() {
-        // TODO Auto-generated method stub
+        if (waitingQueue.isEmpty()) {
+            System.out.println("There is nobody in queue.");
+        } else {
+            System.out.println("Queue:");
+            for (Visitor visitor : waitingQueue) {
+                System.out.println("VisitorID: " + visitor.getVisitorID() + " Name:" + visitor.getName() + " Age:"
+                        + visitor.getAge() + " Sex:" + visitor.getSex() + " Phone:" + visitor.getPhone());
+            }
+        }
 
     }
 

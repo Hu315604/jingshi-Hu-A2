@@ -25,6 +25,7 @@ public class AssignmentTwo {
         rollerCoaster.printQueue();
 
         rollerCoaster.removeVisitorFromQueue();
+        rollerCoaster.printQueue();
 
     }
 

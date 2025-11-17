@@ -60,7 +60,7 @@ public class Ride implements RideInterface {
             System.out.println("Waiting que is empty.");
         } else {
             Visitor removedVisitor = waitingQueue.remove();
-            System.out.println(removedVisitor + " has remove from the queue.");
+            System.out.println(removedVisitor.getName() + " has remove from the queue.");
         }
 
     }

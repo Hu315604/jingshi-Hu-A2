@@ -24,6 +24,8 @@ public class AssignmentTwo {
         
         rollerCoaster.printQueue();
 
+        rollerCoaster.removeVisitorFromQueue();
+
     }
 
     public void partFourA() {

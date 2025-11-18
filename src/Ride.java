@@ -94,8 +94,16 @@ public class Ride implements RideInterface {
 
     @Override
     public boolean checkVisitorFromHistory(Visitor visitor) {
-        // TODO Auto-generated method stub
-        return false;
+        if (visitor == null) {
+            System.out.println("Visitor is null.");
+            return false;
+        }
+        if(rideHistory.isEmpty()){
+            System.out.println("Ride histroy is empty.");
+            return false;
+        } 
+           
+        return rideHistory.contains(visitor);
     }
 
     @Override

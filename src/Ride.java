@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Iterator;
 
 public class Ride implements RideInterface {
 
@@ -98,23 +99,40 @@ public class Ride implements RideInterface {
             System.out.println("Visitor is null.");
             return false;
         }
-        if(rideHistory.isEmpty()){
+        if (rideHistory.isEmpty()) {
             System.out.println("Ride histroy is empty.");
             return false;
-        } 
-           
+        }
+
         return rideHistory.contains(visitor);
     }
 
     @Override
     public int numberOfVisitors() {
-        // TODO Auto-generated method stub
-        return 0;
+        if (rideHistory.isEmpty()) {
+            System.out.println("Ride histroy is empty.");
+            return 0;
+        }
+        return rideHistory.size();
     }
 
     @Override
     public void printRideHistory() {
-        // TODO Auto-generated method stub
+        if (rideHistory.isEmpty()) {
+            System.out.println("The ride history is empty.");
+        } else {
+            System.out.println("Ride History:");
+            // Iterator
+            Iterator<Visitor> iterator = rideHistory.iterator();
+
+            // hasNext() check if there is a next element
+            while (iterator.hasNext()) {
+                Visitor visitor = iterator.next();
+                System.out.println("VisitorID:" + visitor.getVisitorID() + ", Name:" + visitor.getName() + ", Age:"
+                        + visitor.getAge() + ", Sex:" + visitor.getSex() + ", Phone:" + visitor.getPhone());
+            }
+
+        }
 
     }
 

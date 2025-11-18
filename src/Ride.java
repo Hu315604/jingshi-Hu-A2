@@ -9,7 +9,7 @@ public class Ride implements RideInterface {
 
     // part3 waiting line
     private Queue<Visitor> waitingQueue;
-    // part4 
+    // part4
     private LinkedList<Visitor> rideHistory;
 
     public Ride() {
@@ -20,7 +20,7 @@ public class Ride implements RideInterface {
         this.name = name;
         this.description = description;
         this.waitingQueue = new LinkedList<>();
-         rideHistory = new LinkedList<>();
+        rideHistory = new LinkedList<>();
     }
 
     public String getName() {
@@ -84,8 +84,12 @@ public class Ride implements RideInterface {
 
     @Override
     public void addVisitorToHistory(Visitor visitor) {
-        // TODO Auto-generated method stub
-
+        if (visitor == null) {
+            System.out.println("Visitor is null, there cannot join a null visitor to ride history");
+        } else {
+            rideHistory.add(visitor);
+            System.out.println(visitor.getName() + " has been added to the ride history.");
+        }
     }
 
     @Override

@@ -9,6 +9,8 @@ public class Ride implements RideInterface {
 
     // part3 waiting line
     private Queue<Visitor> waitingQueue;
+    // part4 
+    private LinkedList<Visitor> rideHistory;
 
     public Ride() {
         // default
@@ -18,6 +20,7 @@ public class Ride implements RideInterface {
         this.name = name;
         this.description = description;
         this.waitingQueue = new LinkedList<>();
+         rideHistory = new LinkedList<>();
     }
 
     public String getName() {
@@ -72,8 +75,8 @@ public class Ride implements RideInterface {
         } else {
             System.out.println("Queue:");
             for (Visitor visitor : waitingQueue) {
-                System.out.println("VisitorID: " + visitor.getVisitorID() + " Name:" + visitor.getName() + " Age:"
-                        + visitor.getAge() + " Sex:" + visitor.getSex() + " Phone:" + visitor.getPhone());
+                System.out.println("VisitorID:" + visitor.getVisitorID() + ", Name:" + visitor.getName() + ", Age:"
+                        + visitor.getAge() + ", Sex:" + visitor.getSex() + ", Phone:" + visitor.getPhone());
             }
         }
 

@@ -49,7 +49,11 @@ public class AssignmentTwo {
         waterRide.addVisitorToHistory(visitor5);
 
         boolean inHisory=waterRide.checkVisitorFromHistory(visitor5);
-        if (inHisory) System.out.println(visitor5.getName()+" is in ride history.");
+        if (inHisory) {
+            System.out.println(visitor5.getName()+" is in ride history.");
+        }else{
+            System.out.println(visitor5.getName()+" is not in ride history.");
+        }
 
         int num = waterRide.numberOfVisitors();
         System.out.println("Number of visitors in "+waterRide.getName()+" ride hisroty: "+num);

@@ -1,10 +1,13 @@
+import java.util.Comparator;
+
 public class AssignmentTwo {
 
     public static void main(String[] args) {
 
         AssignmentTwo assignmentTwo = new AssignmentTwo();
         // assignmentTwo.partThree();
-        assignmentTwo.partFourA();
+        // assignmentTwo.partFourA();
+        assignmentTwo.partFourB();
 
     }
 
@@ -63,6 +66,32 @@ public class AssignmentTwo {
     }
 
     public void partFourB() {
+        Employee operator = new Employee("Mack", "female", 41, "E003", "Ride operator");
+        Ride waterRide = new Ride("Water Ride", "Visitor with heart disease cannot ride", operator);
+        System.out.println("Create a new Ride object: "+waterRide.getName());
+
+        Visitor visitor1 = new Visitor("Zhangsan", "female", 25, "V001", "13800138001");
+        Visitor visitor2 = new Visitor("Zhangwuji", "male", 45, "V002", "13900139002");
+        Visitor visitor3 = new Visitor("Zhangsanfeng", "male", 28, "V003", "13600136003");
+        Visitor visitor4 = new Visitor("Liudehua", "male", 45, "V004", "13700137004");
+        Visitor visitor5 = new Visitor("Zhaowei", "female", 36, "V005", "13500135005");
+        Visitor visitor6 = new Visitor("Liudehua1", "female", 36, "V006", "13500135005");
+
+        waterRide.addVisitorToHistory(visitor1);
+        waterRide.addVisitorToHistory(visitor2);
+        waterRide.addVisitorToHistory(visitor3);
+        waterRide.addVisitorToHistory(visitor4);
+        waterRide.addVisitorToHistory(visitor5);
+        waterRide.addVisitorToHistory(visitor6);
+
+        waterRide.printRideHistory();
+
+        System.out.println();
+        waterRide.sortRideHistory(new VisitorComparator());
+
+        System.out.println("\nAfter sort by age and name.");
+        waterRide.printRideHistory();
+
     }
 
     public void partFive() {

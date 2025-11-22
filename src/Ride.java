@@ -28,6 +28,7 @@ public class Ride implements RideInterface {
     public Ride(String name, String description, Employee operator, int maxRider) {
         this.name = name;
         this.description = description;
+        this.operator = operator;
         this.waitingQueue = new LinkedList<>();
         rideHistory = new LinkedList<>();
         this.maxRider = maxRider;
@@ -188,13 +189,13 @@ public class Ride implements RideInterface {
         System.out.println("Starting one ride cycle.");
         int ridersThisCycle = 0;
 
-        while (!waitingQueue.isEmpty() && ridersThisCycle < maxRider) {
+        for (int i = 0; i < maxRider && !waitingQueue.isEmpty(); i++) {
             Visitor rider = waitingQueue.poll();
             addVisitorToHistory(rider);
             ridersThisCycle++;
         }
         System.out.println(ridersThisCycle + " visitors took the ride.");
-        
+
         this.numOfCycles++;
         System.out.println("Total cycles run: " + this.numOfCycles);
 

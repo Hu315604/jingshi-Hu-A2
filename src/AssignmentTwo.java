@@ -7,7 +7,8 @@ public class AssignmentTwo {
         AssignmentTwo assignmentTwo = new AssignmentTwo();
         // assignmentTwo.partThree();
         // assignmentTwo.partFourA();
-        assignmentTwo.partFourB();
+        // assignmentTwo.partFourB();
+        assignmentTwo.partFive();
 
     }
 

@@ -95,6 +95,39 @@ public class AssignmentTwo {
     }
 
     public void partFive() {
+        Employee operator = new Employee("Mimi", "female", 38, "E004", "Ride operator");
+        Ride rollerCoaster = new Ride("Roller Coaster", "Visitor with heart disease cannot ride", operator,4);
+        System.out.println("Create a new Ride object:"+rollerCoaster.getName());
+
+        Visitor visitor1 = new Visitor("Zhangsan", "female", 25, "V001", "13800138001");
+        Visitor visitor2 = new Visitor("Zhangwuji", "male", 32, "V002", "13900139002");
+        Visitor visitor3 = new Visitor("Zhangsanfeng", "male", 28, "V003", "13600136003");
+        Visitor visitor4 = new Visitor("Liudehua", "male", 45, "V004", "13700137004");
+        Visitor visitor5 = new Visitor("Zhaowei", "female", 36, "V005", "13500135005");
+        Visitor visitor6 = new Visitor("visitor6", "female", 25, "V006", "13800138001");
+        Visitor visitor7 = new Visitor("visitor7", "male", 32, "V007", "13900139002");
+        Visitor visitor8 = new Visitor("visitor8", "male", 28, "V008", "13600136003");
+        Visitor visitor9 = new Visitor("visitor9", "male", 45, "V009", "13700137004");
+        Visitor visitor10 = new Visitor("visitor10", "female", 36, "V0010", "13500135005");
+
+        rollerCoaster.addVisitorToQueue(visitor1);
+        rollerCoaster.addVisitorToQueue(visitor2);
+        rollerCoaster.addVisitorToQueue(visitor3);
+        rollerCoaster.addVisitorToQueue(visitor4);
+        rollerCoaster.addVisitorToQueue(visitor5);
+        rollerCoaster.addVisitorToQueue(visitor6);
+        rollerCoaster.addVisitorToQueue(visitor7);
+        rollerCoaster.addVisitorToQueue(visitor8);
+        rollerCoaster.addVisitorToQueue(visitor9);
+        rollerCoaster.addVisitorToQueue(visitor10);
+
+        rollerCoaster.printQueue();
+
+        rollerCoaster.runOneCycle();
+
+        rollerCoaster.printQueue();
+
+        rollerCoaster.printRideHistory();
     }
 
     public void partSix() {

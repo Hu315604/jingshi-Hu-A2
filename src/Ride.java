@@ -25,7 +25,7 @@ public class Ride implements RideInterface {
         this.numOfCycles = 0; // default
     }
 
-    public Ride(String name, String description, Employee operator, int maxRider, int numOfCycles) {
+    public Ride(String name, String description, Employee operator, int maxRider) {
         this.name = name;
         this.description = description;
         this.waitingQueue = new LinkedList<>();

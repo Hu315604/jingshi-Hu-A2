@@ -13,7 +13,7 @@ public class AssignmentTwo {
 
     public void partThree() {
         Employee operator = new Employee("Andy", "female", 35, "E001", "Ride operator");
-        Ride rollerCoaster = new Ride("Roller Coaster", "Visitor with heart disease cannot ride", operator);
+        Ride rollerCoaster = new Ride("Roller Coaster", "Visitor with heart disease cannot ride", operator,3);
 
         Visitor visitor1 = new Visitor("Zhangsan", "female", 25, "V001", "13800138001");
         Visitor visitor2 = new Visitor("Zhangwuji", "male", 32, "V002", "13900139002");
@@ -36,7 +36,7 @@ public class AssignmentTwo {
 
     public void partFourA() {
         Employee operator = new Employee("Jacket", "male", 51, "E002", "Ride operator");
-        Ride waterRide = new Ride("Water Ride", "Visitor with heart disease cannot ride", operator);
+        Ride waterRide = new Ride("Water Ride", "Visitor with heart disease cannot ride", operator,4);
         System.out.println("Create a new Ride object:"+waterRide.getName());
 
         Visitor visitor1 = new Visitor("Zhangsan", "female", 25, "V001", "13800138001");
@@ -67,7 +67,7 @@ public class AssignmentTwo {
 
     public void partFourB() {
         Employee operator = new Employee("Mack", "female", 41, "E003", "Ride operator");
-        Ride waterRide = new Ride("Water Ride", "Visitor with heart disease cannot ride", operator);
+        Ride waterRide = new Ride("Water Ride", "Visitor with heart disease cannot ride", operator,4);
         System.out.println("Create a new Ride object: "+waterRide.getName());
 
         Visitor visitor1 = new Visitor("Zhangsan", "female", 25, "V001", "13800138001");

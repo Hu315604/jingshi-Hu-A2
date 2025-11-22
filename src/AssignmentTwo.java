@@ -123,11 +123,15 @@ public class AssignmentTwo {
         rollerCoaster.addVisitorToQueue(visitor10);
 
         rollerCoaster.printQueue();
+        System.out.println();
 
         rollerCoaster.runOneCycle();
+        System.out.println();
 
         rollerCoaster.printQueue();
+        System.out.println();
 
+        System.out.println();
         rollerCoaster.printRideHistory();
     }
 

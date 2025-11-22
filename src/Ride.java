@@ -15,15 +15,23 @@ public class Ride implements RideInterface {
     // part4
     private LinkedList<Visitor> rideHistory;
 
+    private int maxRider;
+    private int numOfCycles;
+
     public Ride() {
-        // default
+        this.waitingQueue = new LinkedList<>();
+        this.rideHistory = new LinkedList<>();
+        this.maxRider = 1; // default
+        this.numOfCycles = 0; // default
     }
 
-    public Ride(String name, String description, Employee operator) {
+    public Ride(String name, String description, Employee operator, int maxRider, int numOfCycles) {
         this.name = name;
         this.description = description;
         this.waitingQueue = new LinkedList<>();
         rideHistory = new LinkedList<>();
+        this.maxRider = maxRider;
+        this.numOfCycles = 0;
     }
 
     public String getName() {
@@ -48,6 +56,22 @@ public class Ride implements RideInterface {
 
     public void setOperator(Employee operator) {
         this.operator = operator;
+    }
+
+    public int getMaxRider() {
+        return maxRider;
+    }
+
+    public void setMaxRider(int maxRider) {
+        this.maxRider = maxRider;
+    }
+
+    public int getNumOfCycles() {
+        return numOfCycles;
+    }
+
+    public void setNumOfCycles(int numOfCycles) {
+        this.numOfCycles = numOfCycles;
     }
 
     @Override
@@ -138,22 +162,41 @@ public class Ride implements RideInterface {
 
     }
 
-    public void sortRideHistory(Comparator<Visitor> comparator){
-        if(rideHistory.isEmpty()){
+    public void sortRideHistory(Comparator<Visitor> comparator) {
+        if (rideHistory.isEmpty()) {
             System.out.println("ride history is empty");
             return;
         }
 
-        System.out.println("Sort ride history: "+ name);
-        Collections.sort(rideHistory,comparator);
+        System.out.println("Sort ride history: " + name);
+        Collections.sort(rideHistory, comparator);
 
     }
 
-
-
     @Override
     public void runOneCycle() {
-        // TODO Auto-generated method stub
+        if (this.operator == null) {
+            System.out.println("Cannot run the ride: No operator.");
+            return;
+        }
+
+        if (waitingQueue.isEmpty()) {
+            System.out.println("Cannot run the ride: The queue is empty.");
+            return;
+        }
+
+        System.out.println("Starting one ride cycle.");
+        int ridersThisCycle = 0;
+
+        while (!waitingQueue.isEmpty() && ridersThisCycle < maxRider) {
+            Visitor rider = waitingQueue.poll();
+            addVisitorToHistory(rider);
+            ridersThisCycle++;
+        }
+        System.out.println(ridersThisCycle + " visitors took the ride.");
+        
+        this.numOfCycles++;
+        System.out.println("Total cycles run: " + this.numOfCycles);
 
     }
 

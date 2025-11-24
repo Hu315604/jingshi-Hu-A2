@@ -153,6 +153,7 @@ public class AssignmentTwo {
         waterRide.addVisitorToHistory(visitor4);
         waterRide.addVisitorToHistory(visitor5);
 
+        //check
         waterRide.printRideHistory();
 
         waterRide.exportRideHistory("ride_history.txt");

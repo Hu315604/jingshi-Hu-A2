@@ -8,7 +8,8 @@ public class AssignmentTwo {
         // assignmentTwo.partThree();
         // assignmentTwo.partFourA();
         // assignmentTwo.partFourB();
-        assignmentTwo.partFive();
+        // assignmentTwo.partFive();
+        assignmentTwo.partSix();
 
     }
 
@@ -136,6 +137,26 @@ public class AssignmentTwo {
     }
 
     public void partSix() {
+        Employee operator = new Employee("Samule", "female", 38, "E004", "Ride operator");
+        Ride waterRide = new Ride("Water Ride", "Visitor with heart disease cannot ride", operator,4);
+        System.out.println("Create a new Ride object:"+waterRide.getName());
+
+        Visitor visitor1 = new Visitor("Zhangsan", "female", 25, "V001", "13800138001");
+        Visitor visitor2 = new Visitor("Zhangwuji", "male", 32, "V002", "13900139002");
+        Visitor visitor3 = new Visitor("Zhangsanfeng", "male", 28, "V003", "13600136003");
+        Visitor visitor4 = new Visitor("Liudehua", "male", 45, "V004", "13700137004");
+        Visitor visitor5 = new Visitor("Zhaowei", "female", 36, "V005", "13500135005");
+
+        waterRide.addVisitorToHistory(visitor1);
+        waterRide.addVisitorToHistory(visitor2);
+        waterRide.addVisitorToHistory(visitor3);
+        waterRide.addVisitorToHistory(visitor4);
+        waterRide.addVisitorToHistory(visitor5);
+
+        waterRide.printRideHistory();
+
+        waterRide.exportRideHistory("ride_history.txt");
+        System.out.println("Export history to file finish.");
     }
 
     public void partSeven() {

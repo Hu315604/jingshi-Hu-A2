@@ -1,5 +1,8 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -200,5 +203,30 @@ public class Ride implements RideInterface {
         System.out.println("Total cycles run: " + this.numOfCycles);
 
     }
+
+    public void exportRideHistory(String fileName) {
+        
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+        
+        if (rideHistory.isEmpty()) {
+            System.out.println("Ride history is empty. Nothing to export.");
+            return;
+        }
+
+        for (Visitor visitor : rideHistory) {
+            String line = visitor.getVisitorID() + "," +
+                           visitor.getName() + "," + 
+                           visitor.getAge() + "," + 
+                           visitor.getSex() + "," + 
+                           visitor.getPhone();
+            writer.write(line);
+            writer.newLine(); 
+        }
+        
+        System.out.println("Successfully exported " + rideHistory.size() + " visitors to " + fileName);
+    } catch (IOException e) {
+        System.err.println("Error writing to file: " + e.getMessage());
+    }
+}
 
 }

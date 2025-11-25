@@ -9,7 +9,8 @@ public class AssignmentTwo {
         // assignmentTwo.partFourA();
         // assignmentTwo.partFourB();
         // assignmentTwo.partFive();
-        assignmentTwo.partSix();
+        // assignmentTwo.partSix();
+        assignmentTwo.partSeven();
 
     }
 
@@ -161,6 +162,17 @@ public class AssignmentTwo {
     }
 
     public void partSeven() {
+        Employee operator = new Employee("Samule", "female", 38, "E004", "Ride operator");
+        Ride waterRide = new Ride("Water Ride", "Visitor with heart disease cannot ride", operator,4);
+        System.out.println("Create a new Ride object:"+waterRide.getName());
+
+        waterRide.importRideHistory("ride_history.txt");
+
+        int num = waterRide.numberOfVisitors();
+        System.out.println("Number of visitors in "+waterRide.getName()+" ride hisroty: "+num);
+
+        waterRide.printRideHistory();
+
     }
 
 }

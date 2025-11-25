@@ -1,6 +1,8 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collections;
@@ -205,28 +207,64 @@ public class Ride implements RideInterface {
     }
 
     public void exportRideHistory(String fileName) {
-        
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-        
-        if (rideHistory.isEmpty()) {
-            System.out.println("Ride history is empty. Nothing to export.");
-            return;
-        }
 
-        for (Visitor visitor : rideHistory) {
-            String line = visitor.getVisitorID() + "," +
-                           visitor.getName() + "," + 
-                           visitor.getAge() + "," + 
-                           visitor.getSex() + "," + 
-                           visitor.getPhone();
-            writer.write(line);
-            writer.newLine(); 
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+
+            if (rideHistory.isEmpty()) {
+                System.out.println("Ride history is empty. Nothing to export.");
+                return;
+            }
+
+            for (Visitor visitor : rideHistory) {
+                String line = visitor.getVisitorID() + "," +
+                        visitor.getName() + "," +
+                        visitor.getAge() + "," +
+                        visitor.getSex() + "," +
+                        visitor.getPhone();
+                writer.write(line);
+                writer.newLine();
+            }
+
+            System.out.println("Successfully exported " + rideHistory.size() + " visitors to " + fileName);
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
         }
-        
-        System.out.println("Successfully exported " + rideHistory.size() + " visitors to " + fileName);
-    } catch (IOException e) {
-        System.err.println("Error writing to file: " + e.getMessage());
     }
-}
+
+    public void importRideHistory(String fileName) {
+         
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+
+            String line;
+            int importedCount = 0;
+
+            while ((line = reader.readLine()) != null) {
+                String[] visitorData = line.split(",");
+
+                if (visitorData.length == 5) {
+                    String id = visitorData[0];
+                    String name = visitorData[1];
+                    int age = Integer.parseInt(visitorData[2]);
+                    String sex = visitorData[3];
+                    String phone = visitorData[4];
+
+                    Visitor visitor = new Visitor(name, sex, age, id, phone);
+
+                    // add to history
+                    rideHistory.add(visitor);
+                    importedCount++;
+                } else {
+                    System.err.println("Skipping malformed line: " + line);
+                }
+            }
+
+            System.out.println("Successfully imported " + importedCount + " visitors from " + fileName);
+
+        } catch (IOException e) {
+            System.err.println("Error reading from file: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("An error occurred during import: " + e.getMessage());
+        }
+    }
 
 }
